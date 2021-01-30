@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://DisplayCase.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Art/SpriteSheets/objects/Interiors_32x32.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Art/SpriteSheets/objects/space_1.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Art/SpriteSheets/objects/space_2.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 32 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 32 )
+
+[node name="DisplayCase" type="Node2D" groups=[
+"display",
+"fridge",
+]]
+script = ExtResource( 1 )
+
+[node name="DisplayCase" type="RigidBody2D" parent="."]
+collision_layer = 4
+collision_mask = 24
+mode = 1
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DisplayCase"]
+position = Vector2( -1, -3 )
+shape = SubResource( 1 )
+
+[node name="EmptyDisplay" type="Sprite" parent="DisplayCase"]
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 48, 14398, 64, 34 )
+region_filter_clip = true
+
+[node name="space_1" type="Area2D" parent="." groups=[
+"displays",
+"fridge",
+]]
+script = ExtResource( 3 )
+
+[node name="FilledDisplayLeft" type="Sprite" parent="space_1"]
+position = Vector2( -16, -8 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 256, 13924, 30, 26 )
+region_filter_clip = true
+
+[node name="DisplayLeft" type="CollisionShape2D" parent="space_1"]
+position = Vector2( -16, 0 )
+shape = SubResource( 2 )
+
+[node name="Label" type="Label" parent="space_1"]
+margin_left = -40.0
+margin_top = -32.0
+margin_bottom = -18.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="space_2" type="Area2D" parent="." groups=[
+"fridge",
+]]
+script = ExtResource( 4 )
+
+[node name="FilledDisplayRight" type="Sprite" parent="space_2"]
+position = Vector2( 16, -5 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 256, 13924, 30, 26 )
+region_filter_clip = true
+
+[node name="DispalyRight" type="CollisionShape2D" parent="space_2"]
+position = Vector2( 16, 0 )
+shape = SubResource( 3 )
+
+[node name="Label" type="Label" parent="space_2"]
+margin_left = 1.0
+margin_top = -32.0
+margin_right = 41.0
+margin_bottom = -18.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

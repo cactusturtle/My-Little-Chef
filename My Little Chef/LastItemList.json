@@ -1,0 +1,28 @@
+{
+	"items" : [ 
+			{"id" : "001",
+			"icon" : "res://Assets/Art/icons/plain_ingredients.png",
+			"type" : "item_types.INGREDIENT",
+			"description" : "raw ingredients to make bread dough with",
+			"sale_price" : 0.50, 
+			"string_item_name" : "raw_ingredients"},
+			{"id" : "002" ,
+			"icon" : "res://Assets/Art/icons/plain_dough.png",
+			"type" : "item_types.PREBAKED",
+			"description" : "raw dough ready to go in the oven",
+			"sale_price" : 1.00,
+			"string_item_name" : "basic_dough"},
+			{"id" : "003",
+			"icon" : "res://Assets/Art/icons/bakedbread.png",
+			"type" : "item_types.BAKED_GOOD",
+			"description" : "bread ready to go in the display",
+			"sale_price" : 1.75, 
+			"string_item_name" : "basic_bread"},
+			{"id" : "004",
+			"icon" : "res://icon.png",
+			"type" : "item_types.DEFUALT",
+			"description" : "This is an error - 'puter go brrrrr",
+			"sale_price" : 0.00, 
+			"string_item_name" : "error"}
+	]
+}

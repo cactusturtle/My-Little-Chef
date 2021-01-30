@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Art/SpriteSheets/Alex_32x32.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Chair.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Art/SpriteSheets/objects/Interiors_32x32.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 10 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 384, 256, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 448, 256, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 512, 256, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 576, 256, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 640, 256, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 704, 256, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "plain_sitting",
+"speed": 5.0
+} ]
+
+[node name="Chair" type="Area2D" groups=[
+"chairs",
+]]
+collision_layer = 4
+collision_mask = 24
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 150, 12040, 38, 54 )
+region_filter_clip = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sitting" type="AnimatedSprite" parent="."]
+position = Vector2( -5.10458, -11.3228 )
+scale = Vector2( 0.873077, 0.86201 )
+frames = SubResource( 8 )
+animation = "plain_sitting"
+frame = 2
+[connection signal="body_exited" from="." to="." method="_on_Chair_body_exited"]

@@ -34,12 +34,13 @@ func _process(delta):
 
 func _on_Door_body_shape_entered(body_id, body, body_shape, area_shape):
 	print("We intersected, ", self.name, body)
-	$AnimatedSprite.play()
+	$AnimatedSprite.play("open")
+	$DoorClosed/DoorOpen.show()
 
 
 func _on_Door_body_shape_exited(body_id, body, body_shape, area_shape):
 	print("We stopped intersecting, ", self.name, body)
-	$AnimatedSprite.stop()
+	$AnimatedSprite.play("close")
 
 
 func send_door_signal():
@@ -50,3 +51,7 @@ func send_door_signal():
 ###TESTING
 func _on_Door_body_entered(body):
 	return true # Replace with function body.
+
+
+func _on_AnimatedSprite_animation_finished():
+	$AnimatedSprite.set_frame(4)

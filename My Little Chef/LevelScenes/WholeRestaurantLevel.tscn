@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Assets/Art/SpriteSheets/objects/Door.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Art/TileSets/restaurant.tres" type="TileSet" id=2]
@@ -10,7 +10,7 @@
 [ext_resource path="res://Assets/Art/SpriteSheets/objects/DisplayCase.tscn" type="PackedScene" id=8]
 [ext_resource path="res://LevelScenes/WholeRestaurantLevel.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Art/SpriteSheets/objects/Interiors_32x32.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Art/SpriteSheets/animated_receptionist.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Art/SpriteSheets/kid_Abby_phone_32x32.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Art/SpriteSheets/animated_cat.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Art/SpriteSheets/objects/SellPoint.tscn" type="PackedScene" id=13]
 
@@ -72,35 +72,31 @@ animations = [ {
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 11 )
-region = Rect2( 0, 0, 16, 32 )
+region = Rect2( 96, 0, 32, 64 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 11 )
-region = Rect2( 16, 0, 16, 32 )
+region = Rect2( 128, 0, 32, 64 )
 
 [sub_resource type="AtlasTexture" id=16]
 atlas = ExtResource( 11 )
-region = Rect2( 32, 0, 16, 32 )
+region = Rect2( 160, 0, 32, 64 )
 
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 11 )
-region = Rect2( 48, 0, 16, 32 )
+region = Rect2( 192, 0, 32, 64 )
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 11 )
-region = Rect2( 64, 0, 16, 32 )
+region = Rect2( 224, 0, 32, 64 )
 
 [sub_resource type="AtlasTexture" id=19]
 atlas = ExtResource( 11 )
-region = Rect2( 80, 0, 16, 32 )
+region = Rect2( 256, 0, 32, 64 )
 
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 11 )
-region = Rect2( 96, 0, 16, 32 )
-
-[sub_resource type="SpriteFrames" id=21]
+[sub_resource type="SpriteFrames" id=20]
 animations = [ {
-"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -134,7 +130,6 @@ region_filter_clip = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="TileMap/TileMap"]
 position = Vector2( 416, 240 )
 frames = SubResource( 13 )
-frame = 10
 playing = true
 
 [node name="Sprite2" type="Sprite" parent="TileMap/TileMap"]
@@ -144,9 +139,11 @@ region_enabled = true
 region_rect = Rect2( 288, 10924, 64, 52 )
 region_filter_clip = true
 
-[node name="AnimatedSprite2" type="AnimatedSprite" parent="TileMap/TileMap"]
-position = Vector2( 657, 328 )
-frames = SubResource( 21 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="TileMap/TileMap/Sprite2"]
+position = Vector2( -8, -16.262 )
+frames = SubResource( 20 )
+frame = 5
+playing = true
 
 [node name="Sprite4" type="Sprite" parent="TileMap/TileMap"]
 position = Vector2( 689, 352 )
@@ -244,3 +241,4 @@ position = Vector2( 193, 304 )
 
 [node name="SellPoint" parent="." instance=ExtResource( 13 )]
 position = Vector2( 592, 163.993 )
+z_index = 2

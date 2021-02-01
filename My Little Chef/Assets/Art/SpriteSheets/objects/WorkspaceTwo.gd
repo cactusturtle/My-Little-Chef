@@ -38,12 +38,15 @@ func get_input():
 		else:
 			pass
 
+
 func _process(delta):
 	get_input()
+
 
 func _fill_workspace():
 	self.show()
 	get_parent().workspaces[1] = "full"
+
 
 func _empty_workspace():
 	self.hide()

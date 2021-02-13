@@ -1,0 +1,6 @@
+Implemented a new character, the customer character, spent the last week getting it to properly move around the scene.
+It's still rough but currently working. I tried several methods and ran into many issues until I found the Tween solution.
+It is not exactly what I had wanted for the character, but it is very close and I am grateful I found this solution, because I think 
+that I will be able to use it in many other ways in the future. It is a rather easy componeent to work with and I can see expanding 
+and adapting it will be easier that what I had previously been trying to do with Path2D and PathFollow2D nodes. It did take quite a bit
+longer to get working than I had hoped, so I do feel a bit behind where I was hoping to be at this time.
